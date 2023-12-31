@@ -1,0 +1,27 @@
+#!/bin/bash
+imagesdir=$HOME/Pictures/wallpapers
+images=($(ls ${imagesdir} | egrep "jpg$|png$|jpeg"))
+rofi="rofi -dmenu"
+menu(){
+
+    for i in ${!images[@]}; do
+            printf "${images[$i]}\n"
+    done
+}
+main() {
+    choice=$(menu | ${rofi})
+
+    if [[ -z $choice ]]; then return; fi
+    killall swaybg
+    wal -i "$imagesdir/$choice"
+    swaybg -i "$imagesdir/$choice"
+    
+}
+
+# Check if rofi is already running
+if pidof rofi >/dev/null; then
+    killall rofi
+    exit 0
+else
+    main
+fi
