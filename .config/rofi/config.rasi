@@ -1,0 +1,85 @@
+configuration{
+    modi: "run,drun";
+    lines: 6;
+    font: "JetBrainsMono Nerd Font 14";
+    show-icons: true;
+    icon-theme: "Tela-circle-dark";
+    terminal: "foot";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: " Apps ";
+    display-run: " Run ";
+}
+
+@theme "theme"
+
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+window {
+    height: 500px;
+    width:500px;
+    border: 5px solid;
+    background-color: @bg-col;
+}
+
+
+mainbox {
+    background-color: @bg-col;
+}
+
+inputbar {
+    children: [prompt,entry];
+    background-color: @bg-col;
+    border-radius: 6px;
+    padding: 2px;
+}
+
+prompt {
+    background-color: #7aa2f7;
+    padding: 6px;
+    text-color: #373737;
+    border-radius: 3px;
+    margin: 20px 0px 0px 20px;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+}
+
+entry {
+    padding: 6px;
+    margin: 20px 0px 0px 10px;
+    text-color: #D9E0EE;
+    background-color: @bg-col;
+    placeholder:"Search";
+
+}
+
+listview {
+    border: 0px 0px 0px;
+    padding: 6px 0px 0px;
+    margin: 10px 0px 0px 20px;
+    columns: 1;
+    background-color: @bg-col;
+}
+
+element {
+    padding: 5px;
+    background-color: @bg-col;
+    text-color: #D9E0EE  ;
+}
+
+element-icon {
+    size: 25px;
+}
+
+element selected {
+    background-color:  @bg-col;
+    text-color: #7aa2f7  ;
+}
