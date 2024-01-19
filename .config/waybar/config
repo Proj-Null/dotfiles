@@ -1,0 +1,96 @@
+{
+    "layer": "top", 
+    "height": 25,
+    "spacing":5, 
+
+    "modules-left": ["custom/appmenu","sway/workspaces", "sway/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray","network", "pulseaudio", "temperature", "backlight", "battery","custom/powermenu"],
+
+
+    "sway/workspaces" : {
+        "on-click": "activate",
+        "active-only": true,
+        "all-outputs": true,
+        "format": "{}",
+        "format-icons": {
+            "urgent": "",
+            "default": "",
+            "focused": ""
+        },
+        "persistent_workspaces": {
+             "*": 5
+        }       
+    }, 
+    
+    
+    
+    
+    "custom/powermenu": {
+        "format": "",
+        "on-click": "wlogout",
+        "tooltip": false
+    },
+    "custom/appmenu": {
+        "format": "👻",
+        "on-click": "/home/nullproj/.config/hypr/Scripts/rofi",
+        "tooltip": false
+        },
+
+
+
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": ["🔘","💿","🔴"]
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "/home/nullproj/.config/rofi/rofi-wifi-menu.sh"
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}
