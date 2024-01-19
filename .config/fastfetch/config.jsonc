@@ -1,0 +1,44 @@
+{
+    "$schema": "file:///C:/msys64/home/zhang/fastfetch/doc/json_schema.json",
+    "logo": {
+        "type": "small"
+    },
+    "display": {
+        "separator": "\u001b[31m->   "
+    },
+    "modules": [
+        {
+            "key": "Distro      ",
+            "type": "os"
+        },
+        {
+            "key": "Shell       ",
+            "type": "shell"
+        },
+        {
+            "key": "Terminal    ",
+            "type": "terminal"
+        },
+        {
+            "key": "Display     ",
+            "type": "display"
+        },
+        { 
+            "key": "DE/WM       ",
+            "type":"wm"
+
+        },
+        {
+            "key": "Memory      ",
+            "type": "memory"
+            
+        },
+        "break",
+        {
+            "type": "colors",
+            "paddingLeft": 6,
+            "symbol": "circle"
+        }
+    ]
+}
+
