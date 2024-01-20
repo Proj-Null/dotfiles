@@ -1,104 +1,75 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
+#window rules
+#float specific windows
+for_window [app_id="PacketTracer" ] floating enable
+for_window [app_id="pavucontrol" ] floating enable
+for_window [app_id="org.kde.polkit-kde-authentication-agent-1" ] floating enable
+for_window [app_id="nm-connection-editor" ] floating enable
+for_window [app_id="pavucontrol" ] floating enable
+for_window [app_id="nwg-look" ] floating enable
+for_window [app_id="qimgv" ] floating enable
 
-### Variables
-#
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
-# Home row direction keys, like vim
+
+#assigning apps to workspaces
+assign [app_id="firefox"] workspace number 2
+assign [app_id="discord"] workspace number 7
+assign [app_id="LibreWolf"] workspace number 4
+assign [app_id="thunar"] workspace number 3
+assign [app_id="org.telegram.desktop"] workspace number 5
+
+#autostart packages
+exec ptt-fix
+exec /usr/lib/polkit-kde-authentication-agent-1
+exec wal -r
+exec autotiling
+exec dunst
+
+set $mod Mod4 
+set $mod2 mod1
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
+
 set $term foot
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-#set $menu /sbin/rofi | xargs swaymsg exec --
-#set $menu '/sbin/rofi -modi run, drun, window  -show drun'
-set $menu 'rofi -show drun'
+set $menu "/home/nullproj/.config/sway/rofi"
+set $snap "grim $(xdg-user-dir PICTURES)/Screenshots/$(date +'%s_grim.png')"
+set $snaparea " grim -g "$(slurp)" $(xdg-user-dir PICTURES)/Screenshots/$(date +'%s_grim.png')"
+
 
 #controlling the brightness.
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+
+#controlling volume 
 bindsym xf86audioraisevolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym xf86audiolowervolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
-workspace 2
-exec firefox
 
-workspace 7
-exec discord
-### Output configuration
-#
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
 
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+#idle and lock
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000'
 
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
 
-### Key bindings
-#
-# Basics:
-#
-    # Start a terminal
-    bindsym $mod+Return exec $term
+#keybindings
+bindsym $mod+Return exec $term #terminal
+bindsym $mod2+Return exec $term
+bindsym $mod+q kill #killfocused
+bindsym $mod+d exec $menu #rofi
+floating_modifier $mod normal #modkey to reside and move floating windows
+bindsym $mod+Shift+c reload
+bindsym $mod2+c reload
+bindsym $mod+W exec "/home/nullproj/.config/sway/wallpaper_switcher" #wallpaper switch menu
+bindsym $mod+ctrl+w exec "/home/nullproj/.config/sway/waybar_style_switcher" #wallpaper theme switch  menu
+bindsym $mod+shift+m exec "/home/nullproj/.config/sway/lightdarkswitch.sh"
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
-    # Kill focused window
-    bindsym $mod+q kill
-
-    # Start your launcher
-    bindsym $mod+d exec $menu
-
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
-
-    # Reload the configuration file
-    bindsym $mod+Shift+c reload
-    bindsym $mod+W exec "/home/nullproj/.config/sway/wallpaper_switcher"
-    bindsym $mod+ctrl+w exec "/home/nullproj/.config/sway/waybar_style_switcher"
-
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-#
 # Moving around:
 #
     # Move your focus around
@@ -148,7 +119,8 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+CTRL+9 move container to workspace number 9
     bindsym $mod+CTRL+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
+    # We just use 1-10 as the default
+
     bindsym $mod+period workspace next
     bindsym $mod+comma workspace prev
 #
@@ -188,8 +160,17 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
-#
+    xwayland enable
 # Resizing containers:
+#touchpad settings
+input "ELAN1203:00 04F3:307A" {
+    natural_scroll enabled
+    scroll_method two_finger
+    tap enabled
+}
+
+
+
 #
 mode "resize" {
     # left will shrink the containers width
@@ -212,6 +193,8 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+bindsym Print exec $snap
+bindsym $mod+p $snaparea
 gaps inner 5
 #disable title bar
 default_border none
@@ -219,7 +202,6 @@ default_floating_border none
 font pango:monospace 0
 titlebar_padding 1
 titlebar_border_thickness 0
-
 #
 # Status Bar:
 #
@@ -227,5 +209,5 @@ titlebar_border_thickness 0
 bar {
 	swaybar_command waybar
 }
-bindsym Print exec --no-startup-id flameshot gui
+
 include /etc/sway/config.d/*

@@ -14,6 +14,9 @@ configuration{
 }
 
 @theme "theme"
+*{
+    bg-col:rgba(88, 119, 234, 0);
+}
 
 element-text, element-icon , mode-switcher {
     background-color: inherit;
@@ -72,7 +75,7 @@ listview {
 element {
     padding: 5px;
     background-color: @bg-col;
-    text-color: #838383 ;
+    text-color: #f0e8e8 ;
 }
 
 element-icon {

@@ -22,8 +22,13 @@
              "*": 5
         }       
     }, 
-    
-    
+    "sway/mode": {
+        "format": " {}",
+        "max-length": 50
+    },
+    "custom/lightdark":{
+        "on-click": "/home/nullproj/.config/sway/lightdarkswitch.sh"
+    },
     
     
     "custom/powermenu": {
@@ -33,7 +38,7 @@
     },
     "custom/appmenu": {
         "format": "👻",
-        "on-click": "/home/nullproj/.config/hypr/Scripts/rofi",
+        "on-click": "/home/nullproj/.config/sway/rofi",
         "tooltip": false
         },
 
