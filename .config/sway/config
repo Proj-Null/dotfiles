@@ -1,6 +1,6 @@
 #window rules
 #float specific windows
-for_window [app_id="PacketTracer" ] floating enable
+for_window [class="PacketTracer"] floating enable
 for_window [app_id="pavucontrol" ] floating enable
 for_window [app_id="org.kde.polkit-kde-authentication-agent-1" ] floating enable
 for_window [app_id="nm-connection-editor" ] floating enable
@@ -12,9 +12,11 @@ for_window [app_id="qimgv" ] floating enable
 #assigning apps to workspaces
 assign [app_id="firefox"] workspace number 2
 assign [app_id="discord"] workspace number 7
-assign [app_id="LibreWolf"] workspace number 4
+assign [app_id="LibreWolf"] workspace number 3
 assign [app_id="thunar"] workspace number 3
 assign [app_id="org.telegram.desktop"] workspace number 5
+assign [class="Caprine"] workspace number 5
+assign [class="discord"] workspace number 7
 
 #autostart packages
 exec ptt-fix
