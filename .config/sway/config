@@ -17,6 +17,7 @@ assign [app_id="thunar"] workspace number 3
 assign [app_id="org.telegram.desktop"] workspace number 5
 assign [class="Caprine"] workspace number 5
 assign [class="discord"] workspace number 7
+assign [class="Spotify"] workspace number 4
 
 #autostart packages
 exec ptt-fix
@@ -49,7 +50,7 @@ bindsym xf86audiolowervolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /home/nullproj/Pictures/wallpapers/0087.jpg fill
 
 #idle and lock
 exec swayidle -w \
@@ -197,6 +198,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 bindsym Print exec $snap
 bindsym $mod+p $snaparea
+bindsym $mod+Print $snaparea
 gaps inner 5
 #disable title bar
 default_border none
