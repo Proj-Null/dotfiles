@@ -12,12 +12,12 @@ notify_view() {
 
 # take shots
 shot() {
-	grimshot save output | wl-copy
-	sleep 1
+	wl-copy < $(grimshot save output)
+	sleep 0.5
 	notify_view
 }
 shotarea() {
-	grimshot save area | wl-copy
+	wl-copy < $(grimshot save area) 
 	notify_view
 }
 

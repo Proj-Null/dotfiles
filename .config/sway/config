@@ -35,15 +35,14 @@ set $right l
 
 set $term foot
 set $menu "/home/nullproj/.config/sway/rofi"
-set $snap "grim $(xdg-user-dir PICTURES)/Screenshots/$(date +'%s_grim.png')"
-set $snaparea   grim -g "$(slurp)" "/home/nullproj/Pictures/Screenshots/$(date +'%s_grim.png') | wl-copy
+set $snap "/home/nullproj/.config/sway/screenshot.sh -f"
+set $snaparea "/home/nullproj/.config/sway/screenshot.sh -a"
 
 #Screenshots
 bindsym $mod+r mode "resize"
 bindsym Print exec $snap
-bindsym $mod+p $snaparea
-bindsym $mod+Print $snaparea
-bindsym SHIFT+Print $snaparea
+bindsym $mod+p exec $snaparea
+bindsym $mod+Print exec $snaparea
 
 
 #controlling the brightness.
