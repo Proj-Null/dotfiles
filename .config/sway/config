@@ -22,7 +22,7 @@ assign [class="Spotify"] workspace number 4
 #autostart packages
 exec ptt-fix
 exec /usr/lib/polkit-kde-authentication-agent-1
-exec wal -r
+exec wal -i /home/nullproj/Pictures/wallpapers/0087.jpg
 exec autotiling
 exec dunst
 
@@ -36,7 +36,14 @@ set $right l
 set $term foot
 set $menu "/home/nullproj/.config/sway/rofi"
 set $snap "grim $(xdg-user-dir PICTURES)/Screenshots/$(date +'%s_grim.png')"
-set $snaparea " grim -g "$(slurp)" $(xdg-user-dir PICTURES)/Screenshots/$(date +'%s_grim.png')"
+set $snaparea   grim -g "$(slurp)" "/home/nullproj/Pictures/Screenshots/$(date +'%s_grim.png') | wl-copy
+
+#Screenshots
+bindsym $mod+r mode "resize"
+bindsym Print exec $snap
+bindsym $mod+p $snaparea
+bindsym $mod+Print $snaparea
+bindsym SHIFT+Print $snaparea
 
 
 #controlling the brightness.
@@ -63,6 +70,7 @@ exec swayidle -w \
 bindsym $mod+Return exec $term #terminal
 bindsym $mod2+Return exec $term
 bindsym $mod+q kill #killfocused
+bindsym $mod2+SHIFT+q kill #killfocused
 bindsym $mod+d exec $menu #rofi
 floating_modifier $mod normal #modkey to reside and move floating windows
 bindsym $mod+Shift+c reload
@@ -195,10 +203,6 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
-bindsym Print exec $snap
-bindsym $mod+p $snaparea
-bindsym $mod+Print $snaparea
 gaps inner 5
 #disable title bar
 default_border none
