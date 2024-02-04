@@ -26,6 +26,7 @@ exec wal -i /home/nullproj/Pictures/wallpapers/0087.jpg
 exec autotiling
 exec dunst
 
+#setting variables
 set $mod Mod4 
 set $mod2 mod1
 set $left h
@@ -37,39 +38,24 @@ set $term foot
 set $menu "/home/nullproj/.config/sway/rofi"
 set $snap "/home/nullproj/.config/sway/screenshot.sh -f"
 set $snaparea "/home/nullproj/.config/sway/screenshot.sh -a"
-
+#keybinds
 #Screenshots
 bindsym $mod+r mode "resize"
 bindsym Print exec $snap
 bindsym $mod+p exec $snaparea
-bindsym $mod+Print exec $snaparea
-
+bindsym shift+Print exec $snaparea
 
 #controlling the brightness.
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
-
 #controlling volume 
 bindsym xf86audioraisevolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym xf86audiolowervolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
-
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/nullproj/Pictures/wallpapers/0087.jpg fill
-
-#idle and lock
-exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
-
-
 #keybindings
 bindsym $mod+Return exec $term #terminal
-bindsym $mod2+Return exec $term
 bindsym $mod+q kill #killfocused
-bindsym $mod2+SHIFT+q kill #killfocused
 bindsym $mod+d exec $menu #rofi
 floating_modifier $mod normal #modkey to reside and move floating windows
 bindsym $mod+Shift+c reload
@@ -87,23 +73,6 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. 
     bindsym $mod+$down focus down
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
-
-    # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
-    # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
-#
 # Workspaces:
 #
     # Switch to workspace
@@ -133,23 +102,22 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. 
 
     bindsym $mod+period workspace next
     bindsym $mod+comma workspace prev
+
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output * bg /home/nullproj/Pictures/wallpapers/0087.jpg fill
+
+#idle and lock
+exec swayidle -w \
+         timeout 1000 'swaylock -f -c 000000' \
+         timeout 2000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000'
+
+
 #
 # Layout stuff:
 #
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    #bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
-
-    # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
-
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
 
@@ -159,17 +127,6 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. 
     # Move focus to the parent container
     bindsym $mod+a focus parent
 #
-# Scratchpad:
-#
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
-
-    # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
-
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
     xwayland enable
 # Resizing containers:
 #touchpad settings
@@ -209,12 +166,9 @@ default_floating_border none
 font pango:monospace 0
 titlebar_padding 1
 titlebar_border_thickness 0
-#
 # Status Bar:
-#
 # Read `man 5 sway-bar` for more information about this section.
 bar {
 	swaybar_command waybar
 }
-
 include /etc/sway/config.d/*

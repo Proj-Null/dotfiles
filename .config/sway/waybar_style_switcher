@@ -1,7 +1,7 @@
 #!/bin/bash
 stylesdir=$HOME/.config/waybar/styles
 styles=($(ls ${stylesdir} | grep -e ".css$"))
-rofi="rofi -dmenu"
+rofi="rofi -dmenu -p Select"
 menu(){
 
     for i in ${!styles[@]}; do
