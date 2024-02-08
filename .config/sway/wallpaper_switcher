@@ -14,8 +14,7 @@ main() {
     if [[ -z $choice ]]; then return; fi
     killall swaybg
     wal -i "${imagesdir}/${choice}"
-    swaymsg "output * bg ${imagesdir}/${choice} fill"
-    # swaybg -i "${imagesdir}/${choice}"
+    swaymsg "output * bg ${imagesdir}/${choice} fill
 }
 
 # Check if the directory exists
