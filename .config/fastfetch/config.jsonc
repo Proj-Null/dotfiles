@@ -19,10 +19,6 @@
             "key": "Terminal    ",
             "type": "terminal"
         },
-        {
-            "key": "Display     ",
-            "type": "display"
-        },
         { 
             "key": "DE/WM       ",
             "type":"wm"
@@ -31,6 +27,11 @@
         {
             "key": "Memory      ",
             "type": "memory"
+            
+        },
+        {
+            "key": "Uptime      ",
+            "type": "uptime"
             
         },
         "break",
