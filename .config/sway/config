@@ -163,7 +163,7 @@ gaps inner 5
 #disable title bar
 default_border none
 default_floating_border none
-font pango:monospace 0
+font pango:monospace 14 
 titlebar_padding 1
 titlebar_border_thickness 0
 # Status Bar:
