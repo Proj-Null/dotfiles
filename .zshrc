@@ -5,6 +5,11 @@ alias fetch='fastfetch'
 alias grep='grep --color=auto'
 eval "$(starship init zsh)"
 alias tuxfetch='neofetch --ascii "$(cowsay -f tux $(fortune))"' 
+alias removeorphans='pacman -Qtdq | pacman -Rns -'
+alias ..="cd .."
+alias ping="ping -c 5"
+alias xamppall="sudo xampp start"
+alias xamppsql="sudo xampp startmysql"
 # Enable colors
 autoload -U colors && colors
 #history and stuff
@@ -34,3 +39,4 @@ cat ~/.cache/wal/sequences
 fastfetch
 # To add support for TTYs this line can be optionally added.
 source ~/.cache/wal/colors-tty.sh
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"
