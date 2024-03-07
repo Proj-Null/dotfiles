@@ -3,9 +3,9 @@
     "height": 25,
     "spacing":5, 
 
-    "modules-left": ["custom/appmenu","sway/workspaces", "sway/window"],
+    "modules-left": ["sway/workspaces", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right": ["tray","network", "pulseaudio", "temperature", "backlight", "battery","custom/powermenu"],
+    "modules-right": ["tray","network", "pulseaudio", "temperature", "backlight", "battery",],
 
 
     "sway/workspaces" : {
@@ -29,19 +29,6 @@
     "custom/lightdark":{
         "on-click": "/home/nullproj/.config/sway/lightdarkswitch.sh"
     },
-    
-    
-    "custom/powermenu": {
-        "format": "",
-        "on-click": "wlogout",
-        "tooltip": false
-    },
-    "custom/appmenu": {
-        "format": "👻",
-        "on-click": "/home/nullproj/.config/sway/rofi",
-        "tooltip": false
-        },
-
 
 
     "tray": {
