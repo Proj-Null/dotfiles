@@ -5,7 +5,7 @@ alias fetch='fastfetch'
 alias grep='grep --color=auto'
 eval "$(starship init zsh)"
 alias tuxfetch='neofetch --ascii "$(cowsay -f tux $(fortune))"' 
-alias removeorphans='pacman -Qtdq | pacman -Rns -'
+alias removeorphans='pacman -Qtdq |sudo pacman -Rns '
 alias ..="cd .."
 alias ping="ping -c 5"
 alias xamppall="sudo xampp start"
