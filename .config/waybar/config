@@ -1,14 +1,23 @@
 {
-    "layer": "top", 
+    "layer": "bottom",
     "height": 25,
-    "spacing":5, 
-
-    "modules-left": ["sway/workspaces", "sway/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["tray","network", "pulseaudio", "temperature", "backlight", "battery",],
-
-
-    "sway/workspaces" : {
+    "spacing": 5,
+    "modules-left": [
+        "sway/workspaces",
+        "sway/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "network",
+        "pulseaudio",
+        "temperature",
+        "backlight",
+        "battery",
+    ],
+    "sway/workspaces": {
         "on-click": "activate",
         "active-only": true,
         "all-outputs": true,
@@ -19,18 +28,9 @@
             "focused": ""
         },
         "persistent_workspaces": {
-             "*": 5
-        }       
-    }, 
-    "sway/mode": {
-        "format": " {}",
-        "max-length": 50
+            "*": 5
+        }
     },
-    "custom/lightdark":{
-        "on-click": "/home/nullproj/.config/sway/lightdarkswitch.sh"
-    },
-
-
     "tray": {
         "spacing": 10
     },
@@ -41,11 +41,19 @@
     "temperature": {
         "critical-threshold": 80,
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
     },
     "backlight": {
         "format": "{percent}% {icon}",
-        "format-icons": ["🔘","💿","🔴"]
+        "format-icons": [
+            "🔘",
+            "💿",
+            "🔴"
+        ]
     },
     "battery": {
         "states": {
@@ -56,7 +64,13 @@
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
     },
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) ",
@@ -81,7 +95,11 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": [
+                "",
+                "",
+                ""
+            ]
         },
         "on-click": "pavucontrol"
     }
