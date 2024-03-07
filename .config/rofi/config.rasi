@@ -1,88 +1,70 @@
-configuration{
-    modi: "run,drun";
-    lines: 6;
-    font: "JetBrainsMono Nerd Font 14";
-    show-icons: true;
-    icon-theme: "Tela-circle-dark";
-    terminal: "foot";
-    drun-display-format: "{icon} {name}";
-    location: 0;
-    disable-history: false;
-    hide-scrollbar: true;
-    display-drun: " Apps ";
-    display-run: " Run ";
-}
-
 @theme "theme"
-*{
-    bg-col:rgba(88, 119, 234, 0);
+configuration {
+  font: "Iosevka Nerd Font Medium 12";
+
+  drun {
+    display-name: "Search Apps";
+  }
+
+  run {
+    display-name: "Search";
+  }
+
+  timeout {
+    delay: 10;
+    action: "kb-cancel";
+  }
 }
 
-element-text, element-icon , mode-switcher {
-    background-color: inherit;
-    text-color:       inherit;
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+  width:30%;
+  height:33%;
+  bg: #151515;
+  bg-alt: #232323;
+  fg: #FFFFFF;
+  fg-alt: #424242;
+
+  background-color: @bg;
+  text-color: @fg;
 }
 
 window {
-    height: 500px;
-    width:500px;
-    border: 5px solid;
-    background-color: @bg-col;
+  transparency: "real";
 }
 
-
 mainbox {
-    background-color: @bg-col;
+  children: [inputbar, listview];
 }
 
 inputbar {
-    children: [prompt,entry];
-    background-color: @bg-col;
-    border-radius: 6px;
-    padding: 2px;
-}
-
-prompt {
-    background-color: #7aa2f7;
-    padding: 6px;
-    text-color: #373737;
-    border-radius: 3px;
-    margin: 20px 0px 0px 20px;
-}
-
-textbox-prompt-colon {
-    expand: false;
-    str: ":";
+  children: [prompt, entry];
 }
 
 entry {
-    padding: 6px;
-    margin: 20px 0px 0px 10px;
-    text-color: #D9E0EE;
-    background-color: @bg-col;
-    placeholder:"Search";
+  padding: 12px 0;
+}
 
+prompt {
+  padding: 12px;
 }
 
 listview {
-    border: 0px 0px 0px;
-    padding: 6px 0px 0px;
-    margin: 10px 0px 0px 20px;
-    columns: 1;
-    background-color: @bg-col;
+  lines: 8;
 }
 
 element {
-    padding: 5px;
-    background-color: @bg-col;
-    text-color: #f0e8e8 ;
+  children: [element-text];
 }
 
-element-icon {
-    size: 25px;
+element-text {
+  padding: 12px;
+  text-color: @fg-alt;
 }
 
-element selected {
-    background-color:  @bg-col;
-    text-color: #7aa2f7  ;
+element-text selected {
+  text-color: @fg;
 }
