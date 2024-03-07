@@ -22,7 +22,7 @@ assign [class="Spotify"] workspace number 4
 #autostart packages
 exec ptt-fix
 exec /usr/lib/polkit-kde-authentication-agent-1
-exec wal -i /home/nullproj/Pictures/wallpapers/0087.jpg
+exec wal -r 
 exec autotiling
 exec dunst
 
@@ -104,12 +104,14 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. 
     bindsym $mod+comma workspace prev
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/nullproj/Pictures/wallpapers/0087.jpg fill
+output * bg /home/nullproj/Pictures/wallpapers/0058.jpg fill
 
+#set the monitor to run at 60 hz to save battery.
+output eDP-1 mode 1920x1080@60.002Hz
 #idle and lock
 exec swayidle -w \
-         timeout 1000 'swaylock -f -c 000000' \
-         timeout 2000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         timeout 60000 'swaylock -f -c 000000' \
+         timeout 120000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'swaylock -f -c 000000'
 
 
