@@ -13,7 +13,6 @@ main() {
     choice=$(menu | ${rofi})
     if [[ -z $choice ]]; then return; fi
     killall swaybg
-    wal -i "${imagesdir}/${choice}"
     swaymsg "output * bg ${imagesdir}/${choice} fill"
 }
 

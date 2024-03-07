@@ -22,7 +22,6 @@ assign [class="Spotify"] workspace number 4
 #autostart packages
 exec ptt-fix
 exec /usr/lib/polkit-kde-authentication-agent-1
-exec wal -r 
 exec autotiling
 exec dunst
 
