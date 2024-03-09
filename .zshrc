@@ -16,13 +16,6 @@ autoload -U colors && colors
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
-export XDG_CURRENT_DESKTOP=sway
-export MOZ_ENABLE_WAYLAND=1
-export QT_QPA_PLATFORM=wayland
-export SDL_VIDEODRIVER=wayland
-export CLUTTER_BACKEND=wayland
-export GDK_BACKEND=wayland
-export BEMENU_BACKEND=wayland
 # Basic auto/tab complete:
 autoload -U compinit 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' menu select
@@ -35,5 +28,14 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 #run fastfetch on startup
 fastfetch
 # To add support for TTYs this line can be optionally added.
-source ~/.cache/wal/colors-tty.sh
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+#if [[ "$(tty)" == "/dev/tty1" ]]; then
+#	export XDG_CURRENT_DESKTOP=sway
+#	export MOZ_ENABLE_WAYLAND=1
+#	export QT_QPA_PLATFORM=wayland
+#	export SDL_VIDEODRIVER=wayland
+#	export CLUTTER_BACKEND=wayland
+#	export GDK_BACKEND=wayland
+#	export BEMENU_BACKEND=wayland
+#	sway --unsupported-gpu
+#fi
