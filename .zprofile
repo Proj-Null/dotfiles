@@ -6,5 +6,5 @@ if [[ "$(tty)" == "/dev/tty1" ]]; then
 	export CLUTTER_BACKEND=wayland
 	export GDK_BACKEND=wayland
 	export BEMENU_BACKEND=wayland
-	sway --unsupported-gpu
+	exec sway --unsupported-gpu
 fi
