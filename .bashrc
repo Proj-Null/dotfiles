@@ -13,7 +13,6 @@ alias grep='grep --color=auto'
 alias removeorphans='pacman -Qtdq | pacman -Rns -'
 alias ..="cd.."
 alias ping="ping -c 5"
-eval "$(starship init bash)"export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 #if [[ "$(tty)" == "/dev/tty1" ]]; then
 #	export XDG_CURRENT_DESKTOP=sway
 #	export MOZ_ENABLE_WAYLAND=1
