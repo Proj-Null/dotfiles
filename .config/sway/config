@@ -24,6 +24,7 @@ exec ptt-fix
 exec /usr/lib/polkit-kde-authentication-agent-1
 exec autotiling
 exec dunst
+exec foot --server
 
 #setting variables
 set $mod Mod4 
@@ -109,8 +110,8 @@ output * bg /home/nullproj/Pictures/wallpapers/0058.jpg fill
 output eDP-1 mode 1920x1080@60.002Hz
 #idle and lock
 exec swayidle -w \
-         timeout 60000 'swaylock -f -c 000000' \
-         timeout 120000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'swaylock -f -c 000000'
 
 
