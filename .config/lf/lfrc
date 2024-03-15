@@ -17,7 +17,7 @@ set previewer sixel
    $EDITOR $ans
  }}
 
-
+set previewer "/home/dm/.config/lf/preview"
  # Archive bindings
  cmd unarchive ${{
    case "$f" in
