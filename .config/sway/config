@@ -38,7 +38,10 @@ set $term foot
 set $menu "/home/nullproj/.config/sway/rofi"
 set $snap "/home/nullproj/.config/sway/screenshot.sh -f"
 set $snaparea "/home/nullproj/.config/sway/screenshot.sh -a"
+set $togglemic "pactl set-source-mute 55 toggle"
+
 #keybinds
+
 #Screenshots
 bindsym $mod+r mode "resize"
 bindsym Print exec $snap
@@ -49,9 +52,10 @@ bindsym shift+Print exec $snaparea
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
-#controlling volume 
+#controlling volume and Microphone
 bindsym xf86audioraisevolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym xf86audiolowervolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym $mod+m exec $togglemic
 
 #keybindings
 bindsym $mod+Return exec $term #terminal
@@ -61,8 +65,7 @@ floating_modifier $mod normal #modkey to reside and move floating windows
 bindsym $mod+Shift+c reload
 bindsym $mod2+c reload
 bindsym $mod+W exec "/home/nullproj/.config/sway/wallpaper_switcher" #wallpaper switch menu
-bindsym $mod+ctrl+w exec "/home/nullproj/.config/sway/waybar_style_switcher" #wallpaper theme switch  menu
-bindsym $mod+shift+m exec "/home/nullproj/.config/sway/lightdarkswitch.sh"
+bindsym $mod+ctrl+w exec "/home/nullproj/.config/sway/waybar_style_switcher" #waybar style switch menu
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
