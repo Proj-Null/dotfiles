@@ -9,7 +9,8 @@ alias ..="cd .."
 alias ping="ping -c 5"
 alias xamppall="sudo xampp start"
 alias xamppsql="sudo xampp startmysql"
-
+alias senpwai=/home/nullproj/.venvs/venv/bin/senpwai
+alias venvpip=/home/nullproj/.venvs/venv/bin/pip
 #history and stuff
 HISTSIZE=10000
 SAVEHIST=10000
