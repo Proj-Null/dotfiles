@@ -7,7 +7,8 @@
         "sway/window"
     ],
     "modules-center": [
-        "clock"
+        "clock",
+        "custom/pomodoro"
     ],
     "modules-right": [
         "tray",
@@ -31,6 +32,18 @@
             "*": 5
         }
     },
+    
+"custom/pomodoro": {
+	"format": "{} {icon}",
+	"return-type": "json",
+	"format-icons": {
+		"work": "📄",
+		"break": "",
+	},
+	"exec": "waybar-pomodoro",
+	"on-click": "waybar-pomodoro toggle",
+	"on-click-right": "waybar-pomodoro reset",
+},
     "tray": {
         "spacing": 10
     },

@@ -1,0 +1,113 @@
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    min-height: 0;
+    font-size: 98%;
+    font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+    padding: 0px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+window#waybar {
+    background: rgba(0, 0, 0, 0); /* Transparent background */
+}
+
+window#waybar.hidden {
+    opacity: 0.5;
+}
+
+tooltip {
+    background: #3c3836; /* Gruvbox dark grey */
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #7c6f64; /* Gruvbox light brown */
+}
+
+/*-----module groups----*/
+.modules-right {
+    background-color: #3c3836; /* Gruvbox dark grey */
+    border: 0px solid #282828; /* Gruvbox dark grey */
+    border-radius: 10px;
+}
+
+.modules-center {
+    background-color: #3c3836; /* Gruvbox dark grey */
+    border: 0px solid #3c3836; /* Gruvbox dark grey */
+    border-radius: 10px;
+}
+
+.modules-left {
+    background-color: #3c3836; /* Gruvbox dark grey */
+    border: 0px solid #3c3836; /* Gruvbox dark grey */
+    border-radius: 10px;
+}
+
+#workspaces button {
+    padding: 2px;
+    color: #7c6f64; /* Gruvbox light brown */
+    margin-right: 5px;
+}
+
+#workspaces button.active {
+    color: #d79921; /* Gruvbox yellow */
+    border-radius: 15px 15px 15px 15px;
+}
+
+#workspaces button.focused {
+    color: #ebdbb2; /* Gruvbox light grey */
+}
+
+#workspaces button.urgent {
+    color: #cc241d; /* Gruvbox red */
+    border-radius: 10px;
+}
+
+#workspaces button:hover {
+    color: #ebdbb2; /* Gruvbox light grey */
+    border-radius: 15px;
+}
+
+#clock,
+#battery,
+#temperature,
+#network,
+#pulseaudio,
+#mode,
+#tray,
+#backlight,
+#window,
+#taskbar,
+#workspaces,
+#custom-pomodoro,
+#custom-appmenu,
+#custom-powermenu,
+#custom-changewall {
+    color: #d79921; /* Gruvbox yellow */
+    padding: 0px 10px;
+    border-radius: 10px;
+}
+
+#temperature.critical {
+    background-color: #cc241d; /* Gruvbox red */
+}
+
+@keyframes blink {
+    to {
+        color: #282828; /* Gruvbox dark grey */
+    }
+}
+
+#taskbar button.active {
+    background-color: #7c6f64; /* Gruvbox light brown */
+}
+
+#battery.critical:not(.charging) {
+    color: #cc241d; /* Gruvbox red */
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
