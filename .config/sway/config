@@ -107,14 +107,14 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. 
     bindsym $mod+comma workspace prev
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/nullproj/Pictures/wallpapers/0058.jpg fill
+output * bg /home/nullproj/Pictures/wallpapers/gruvbox_anime.png fill
 
 #set the monitor to run at 60 hz to save battery.
 output eDP-1 mode 1920x1080@60.002Hz
 #idle and lock
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         timeout 600 'swaylock -f -c 000000' \
+         timeout 1200 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'swaylock -f -c 000000'
 
 
@@ -140,9 +140,6 @@ input "ELAN1203:00 04F3:307A" {
     scroll_method two_finger
     tap enabled
 }
-
-
-
 #
 mode "resize" {
     # left will shrink the containers width
@@ -164,12 +161,41 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+# Gruvbox color palette
+set $gruvbox-dark-red     "#cc241d"
+set $gruvbox-red          "#fb4934"
+set $gruvbox-dark-yellow  "#d79921"
+set $gruvbox-yellow       "#d79921"
+set $gruvbox-dark-blue    "#458588"
+set $gruvbox-blue         "#83a598"
+set $gruvbox-dark-purple  "#b16286"
+set $gruvbox-purple       "#d3869b"
+set $gruvbox-dark-aqua    "#689d6a"
+set $gruvbox-aqua         "#8ec07c"
+set $gruvbox-dark-orange  "#d65d0e"
+set $gruvbox-orange       "#fe8019"
+set $gruvbox-dark-gray    "#a89984"
+set $gruvbox-gray         "#bdae93"
+set $gruvbox-dark-green   "#32361a"
+set $gruvbox-green        "#49483e"
+set $gruvbox-dark-bg      "#282828"
+set $gruvbox-bg           "#32302f"
+
+# Window border colors
+client.focused            $gruvbox-yellow $gruvbox-yellow $gruvbox-dark-gray $gruvbox-yellow $gruvbox-yellow
+client.focused_inactive   $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray
+client.unfocused          $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray
+# Border size
+default_border pixel 3
+default_floating_border pixel 3
+#gaps and borders
 gaps inner 5
-#disable title bar
-default_border none
-default_floating_border none
+gaps outer 2
+corner_radius 15
+#font
 font pango:monospace 14 
-titlebar_padding 1
+#disable title bar
+titlebar_padding 20
 titlebar_border_thickness 0
 # Status Bar:
 # Read `man 5 sway-bar` for more information about this section.
