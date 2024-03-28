@@ -1,70 +1,57 @@
 @theme "theme"
 configuration {
-  font: "Iosevka Nerd Font Medium 12";
-
-  drun {
-    display-name: "Search Apps";
-  }
-
-  run {
-    display-name: "Search";
-  }
-
-  timeout {
-    delay: 10;
-    action: "kb-cancel";
-  }
+    font: "Iosevka Nerd Font Medium 12";
+    drun {
+        display-name: "Search Apps";
+    }
+    run {
+        display-name: "Search";
+    }
+    timeout {
+        delay: 10;
+        action: "kb-cancel";
+    }
 }
 
-* {
-  border: 0;
-  margin: 0;
-  padding: 0;
-  spacing: 0;
-  width:30%;
-  height:33%;
-  bg: #151515;
-  bg-alt: #232323;
-  fg: #FFFFFF;
-  fg-alt: #424242;
-
-  background-color: @bg;
-  text-color: @fg;
-}
-
-window {
-  transparency: "real";
-}
-
-mainbox {
-  children: [inputbar, listview];
-}
-
-inputbar {
-  children: [prompt, entry];
-}
-
-entry {
-  padding: 12px 0;
-}
-
-prompt {
-  padding: 12px;
-}
-
-listview {
-  lines: 8;
-}
-
-element {
-  children: [element-text];
-}
-
-element-text {
-  padding: 12px;
-  text-color: @fg-alt;
-}
-
-element-text selected {
-  text-color: @fg;
-}
+    * {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        spacing: 0;
+        width: 30%;
+        height: 33%;
+        bg: #282828;
+        bg-alt: #3c3836;
+        fg: #ebdbb2;
+        fg-alt: #bdae93;
+        background-color: @bg;
+        text-color: @fg;
+    }
+    window {
+        transparency: "real";
+    }
+    mainbox {
+        children: [inputbar, listview];
+    }
+    inputbar {
+        children: [prompt, entry];
+    }
+    entry {
+        padding: 12px 0;
+    }
+    prompt {
+        padding: 12px;
+    }
+    listview {
+        lines: 8;
+    }
+    element {
+        children: [element-text];
+    }
+    element-text {
+        padding: 12px;
+        text-color: @fg-alt;
+    }
+    element-text selected {
+        text-color: @fg;
+    }
