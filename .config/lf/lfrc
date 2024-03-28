@@ -1,7 +1,5 @@
-set previewer sixel
-
 # # Basic Settings
- set hidden true
+ set hidden false
  set ignorecase true
 
 # # Custom Functions
@@ -16,8 +14,6 @@ set previewer sixel
    read ans
    $EDITOR $ans
  }}
-
-set previewer "/home/dm/.config/lf/preview"
  # Archive bindings
  cmd unarchive ${{
    case "$f" in
@@ -25,10 +21,20 @@ set previewer "/home/dm/.config/lf/preview"
        *.tar.gz) tar -xzvf "$f" ;;
        *.tar.bz2) tar -xjvf "$f" ;;
        *.tar) tar -xvf "$f" ;;
+       *.7z) 7z x "$f" ;;
        *) echo "Unsupported format" ;;
    esac
  }}
+ cmd trash ${{
+ mv -r "$f" ~/trash/
+  }}
 
+cmd remove ${{
+    rm -rf "$f"
+  }}
+cmd emptytrash ${{
+    cd ~/trash/ && rm -rf * && cd ..
+  }}
 # # Bindings
  map c $vscodium "$f"
  map au unarchive
@@ -43,10 +49,13 @@ set previewer "/home/dm/.config/lf/preview"
  map mf mkfile
  map md mkdir
  map C clear
-
+ map D remove
+ map et emptytrash
+ map t trash
 # # Novement
  map gD cd ~/Documents
  map gd cd ~/Downloads
  map gp cd ~/Pictures
  map gc cd ~/.config
  map gv cd ~/Videos
+ map gt cd ~/trash/
