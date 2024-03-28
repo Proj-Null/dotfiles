@@ -28,10 +28,8 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 #run fastfetch on startup
 fastfetch
 
+eval "$(starship init zsh)"
 # To add support for TTYs this line can be optionally added.
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
-#prompt
-autoload colors && colors
-zle_highlight=(default:bold)
-PS1='%F{blue}%~ %(?.%F{green}.%F{red})%#%f '
+export PATH=$PATH:/home/nullproj/.spicetify
