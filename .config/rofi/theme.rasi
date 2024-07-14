@@ -1,0 +1,17 @@
+*{
+    bg-col:rgba(88, 119, 234, 0);
+}
+    * {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        spacing: 0;
+        width: 30%;
+        height: 33%;
+        bg: #282828;
+        bg-alt: #3c3836;
+        fg: #ebdbb2;
+        fg-alt: #bdae93;
+        background-color: @bg;
+        text-color: @fg;
+    }

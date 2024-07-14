@@ -1,0 +1,16 @@
+configuration {
+    show-icons: true;
+    font: "JetBrains Mono 12";
+    icon-theme: "Gruvbox-Plus-Dark";
+
+    display-ssh:    "ssh:";
+    display-run:    "Search:";
+    display-drun:   "Search Apps:";
+    display-window: "window:";
+    display-combi:  "combi:";
+    display-filebrowser: "󰉋 filebrowser:";
+
+    dpi: 100;
+}
+
+@theme "~/.config/rofi/gruvbox-material.rasi"

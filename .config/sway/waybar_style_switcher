@@ -1,0 +1,26 @@
+#!/bin/bash
+stylesdir=$HOME/.config/waybar/styles
+styles=($(ls ${stylesdir} | grep -e ".css$"))
+rofi="rofi -dmenu -p Select"
+menu() {
+
+	for i in ${!styles[@]}; do
+		printf "${styles[$i]}\n"
+	done
+}
+main() {
+	choice=$(menu | ${rofi})
+
+	if [[ -z $choice ]]; then return; fi
+	ln -sf "$HOME/.config/waybar/styles/$choice" "$HOME/.config/waybar/style.css"
+	swaymsg reload
+}
+
+# Check if wofi is already running
+if pidof rofi >/dev/null; then
+	killall rofi
+	exit 0
+else
+	main
+fi
+
