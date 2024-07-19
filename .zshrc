@@ -7,6 +7,7 @@ alias removeorphans='pacman -Qtdq |sudo pacman -Rns -'
 alias ..="cd .."
 alias ping="ping -c 5"
 alias wcp=wl-copy
+alias :wq=exit
 alias py=python3
 #history and stuff
 HISTSIZE=10000
@@ -22,21 +23,17 @@ compinit
 
 #run fastfetch on startup
 fastfetch
-
 eval "$(starship init zsh)"
 # To add support for TTYs this line can be optionally added.
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
-export PATH=$PATH:/home/nullproj/.spicetify
 
-# Load zsh-syntax-highlighting; should be last.
-#source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 export PATH=$PATH:~/.venvs/venv1/bin
 
 
 #. "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"
-eval "$(atuin init zsh)"
-export XDG_DATA_DIRS="$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/nullproj/.local/share/flatpak/exports/share"
+
+#syntax-highlighting
+source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh

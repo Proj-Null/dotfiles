@@ -13,7 +13,7 @@ for_window [class= "Museeks"] floating enable
 for_window [title=".*Bitwarden.*"] floating enable
 #assigning apps to workspaces
 assign [app_id="firefox"] workspace number 2
-assign [class="Chromium"] workspace number 3
+assign [app_id="LibreWolf"] workspace number 3
 assign [class="Caprine"] workspace number 5
 assign [class="discord"] workspace number 7
 
@@ -52,7 +52,7 @@ bindsym $mod+r mode "resize"
 bindsym Print exec $snap
 bindsym $mod+p exec $snaparea
 bindsym shift+Print exec $snaparea
-bindsym $mod2+x exec dunstctl close
+bindsym $mod2+x exec swaync-client -t -sw
 
 #controlling the brightness.
 bindsym $mod2+XF86MonBrightnessUp exec brightnessctl set +1%
@@ -206,8 +206,8 @@ client.focused_inactive   $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gr
 client.unfocused          $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray
 
 # Border size
-default_border pixel 0
-default_floating_border pixel 0
+default_border pixel 1
+default_floating_border pixel 1
 
 #gaps and borders
 gaps inner 5
