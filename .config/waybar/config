@@ -64,7 +64,7 @@
   "backlight": {
     "format": "{percent}% {icon}",
     "tooltip": false,
-    "format-icons": ["","","☽","✭","☀"]
+    "format-icons": ["","","✭","☀"]
   },
 
      "battery": {

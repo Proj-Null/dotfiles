@@ -1,7 +1,10 @@
 #window rules
 #float specific windows
 for_window [class="PacketTracer"] floating enable
+for_window [class="Tk"] floating enable
+for_window [class="PrismLauncher"] floating enable
 for_window [app_id="pavucontrol" ] floating enable
+for_window [app_id="org.gnome.Calculator" ] floating enable
 for_window [app_id="org.kde.polkit-kde-authentication-agent-1" ] floating enable
 for_window [app_id="nwg-look" ] floating enable
 for_window [app_id="io.bassi.Amberol"] floating enable
@@ -16,15 +19,15 @@ assign [app_id="firefox"] workspace number 2
 assign [app_id="LibreWolf"] workspace number 3
 assign [class="Caprine"] workspace number 5
 assign [class="discord"] workspace number 7
+assign [class="Minecraft*"] workspace number 9
 
 
 #autostart packages
-exec swaylock
 exec /usr/lib/polkit-kde-authentication-agent-1
 exec autotiling
-exec swaync
-#exec dunst
+exec nm-applet &
 exec foot --server
+exec swaync
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
 
@@ -41,10 +44,11 @@ set $menu "/home/nullproj/.config/sway/rofi"
 set $emoji "/home/nullproj/.config/sway/rofi-emoji.sh"
 set $snap "/home/nullproj/.config/sway/screenshot.sh -f"
 set $snaparea "/home/nullproj/.config/sway/screenshot.sh -a"
-set $togglemic " pactl set-source-mute `pactl list sources short | awk '/input/ {print $1}'` toggle"
+set $togglemic "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 set $cliphistory "cliphist list | rofi -dmenu | cliphist decode |wl-copy"
 set $wifimenu "/home/nullproj/.config/rofi/rofi-wifi-menu.sh"
 set $btmenu "/home/nullproj/.config/sway/bt.sh"
+set $full "killall waybar"
 #keybinds
 
 #Screenshots
@@ -61,17 +65,21 @@ bindsym $mod2+XF86MonBrightnessDown exec brightnessctl set 1%-
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 #controlling volume and Microphone
+bindsym $mod2+xf86audioraisevolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+
 bindsym xf86audioraisevolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym $mod2+xf86audiolowervolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-
 bindsym xf86audiolowervolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bindsym $mod+m exec $togglemic
 bindsym $mod2+m exec $togglemic
 bindsym $mod +b exec $btmenu
+bindsym $mod2 +b exec $btmenu
 
 #keybindings
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 bindsym $mod+plus move position current
 bindsym $mod+Return exec $term #terminal
+bindsym $mod+Shift+Return exec kitty #terminal
 bindsym $mod+q kill #killfocused
 bindsym $mod+d exec $menu #rofi
 bindsym $mod+v exec $cliphistory
@@ -132,9 +140,9 @@ output * bg /home/nullproj/Pictures/wallpapers/wallpaper.jpg fill
 output eDP-1 mode 1920x1080@60.002Hz
 #idle and lock
 exec swayidle -w \
-         timeout 600 'swaylock -f -c 000000' \
-         timeout 1200 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         timeout 1800 'systemctl suspend' resume 'swaymsg "output * power on"' \
+         timeout 1234600 'swaylock -f -c 000000' \
+         timeout 12000000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         timeout 18000000 'systemctl suspend' resume 'swaymsg "output * power on"' \
          before-sleep 'swaylock -f -c 000000'
 
 #
