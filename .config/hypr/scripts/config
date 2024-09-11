@@ -3,9 +3,8 @@
     "height": 25,
     "spacing": 5,
     "modules-left": [
-        "sway/workspaces",
-        "custom/scratchpad",
-        "sway/window"
+	"hyprland/workspaces",
+    	"hyprland/window"
     ],
     "modules-center": [
         "clock"
@@ -20,6 +19,11 @@
         "battery",
 	"custom/powermenu"
     ],
+ "hyprland/workspaces": {
+     "format": "{icon}",
+     "on-scroll-up": "hyprctl dispatch workspace e+1",
+     "on-scroll-down": "hyprctl dispatch workspace e-1"
+},
  "sway/workspaces": {
     "on-click": "activate",
     "active-only": true,

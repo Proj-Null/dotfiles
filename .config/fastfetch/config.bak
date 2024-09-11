@@ -1,0 +1,44 @@
+{
+    "logo": {
+        "type": "small"
+    },
+    "display": {
+        "separator": "\u001b[31m->   "
+    },
+    "modules": [
+        {
+            "key": "Distro      ",
+            "type": "os"
+        },
+        {
+            "key": "Shell       ",
+            "type": "shell"
+        },
+        {
+            "key": "Terminal    ",
+            "type": "terminal"
+        },
+        { 
+            "key": "DE/WM       ",
+            "type":"wm"
+
+        },
+        {
+            "key": "Memory      ",
+            "type": "memory"
+            
+        },
+        {
+            "key": "Uptime      ",
+            "type": "uptime"
+            
+        },
+        "break",
+        {
+            "type": "colors",
+            "paddingLeft": 6,
+            "symbol": "circle"
+        }
+    ]
+}
+

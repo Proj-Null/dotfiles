@@ -1,0 +1,7 @@
+#!/bin/bash
+if pidof rofi >/dev/null; then
+	killall rofi
+	exit 0
+else
+	cliphist list | rofi -dmenu | cliphist decode | wl-copy
+fi

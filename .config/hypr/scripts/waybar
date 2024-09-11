@@ -1,0 +1,7 @@
+#!/bin/bash
+if pidof waybar >/dev/null; then
+	killall waybar
+	waybar -c /home/nullproj/.config/hypr/scripts/config
+else
+	waybar -c /home/nullproj/.config/hypr/scripts/config
+fi
