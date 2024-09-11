@@ -1,0 +1,235 @@
+#window rules
+#float specific windows
+for_window [class="PacketTracer"] floating enable
+for_window [class="Tk"] floating enable
+for_window [class="PrismLauncher"] floating enable
+for_window [app_id="pavucontrol" ] floating enable
+for_window [app_id="anki" ] floating enable
+for_window [app_id="org.gnome.Calculator" ] floating enable
+for_window [app_id="org.kde.polkit-kde-authentication-agent-1" ] floating enable
+for_window [app_id="nwg-look" ] floating enable
+for_window [app_id="io.bassi.Amberol"] floating enable
+for_window [app_id="floating" ] floating enable
+for_window [app_id="qimgv" ] floating enable
+for_window [app_id="org.prismlauncher.PrismLauncher"] floating enable
+for_window [app_id="blueman-manager"] floating enable
+for_window [class= "Museeks"] floating enable
+for_window [title=".*Bitwarden.*"] floating enable
+#assigning apps to workspaces
+assign [app_id="firefox"] workspace number 2
+assign [app_id="LibreWolf"] workspace number 3
+assign [class="Caprine"] workspace number 5
+assign [class="discord"] workspace number 7
+assign [class="Minecraft*"] workspace number 9
+
+
+#autostart packages
+exec /usr/lib/polkit-kde-authentication-agent-1
+exec autotiling
+exec foot --server
+exec swaync
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
+
+#setting variables
+set $mod Mod4 
+set $mod2 mod1
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term footclient
+set $menu "/home/nullproj/.config/sway/rofi"
+set $emoji "/home/nullproj/.config/sway/rofi-emoji.sh"
+set $snap "/home/nullproj/.config/sway/screenshot.sh -f"
+set $snaparea "/home/nullproj/.config/sway/screenshot.sh -a"
+set $togglemic "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+set $cliphistory "cliphist list | rofi -dmenu | cliphist decode |wl-copy"
+set $wifimenu "/home/nullproj/.config/rofi/rofi-wifi-menu.sh"
+set $btmenu "/home/nullproj/.config/sway/bt.sh"
+set $full "killall waybar"
+#keybinds
+
+#Screenshots
+bindsym $mod+r mode "resize"
+bindsym Print exec $snap
+bindsym $mod+p exec $snaparea
+bindsym shift+Print exec $snaparea
+bindsym $mod2+x exec swaync-client -t -sw
+
+#controlling the brightness.
+bindsym $mod2+XF86MonBrightnessUp exec brightnessctl set +1%
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym $mod2+XF86MonBrightnessDown exec brightnessctl set 1%-
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+#controlling volume and Microphone
+bindsym $mod2+xf86audioraisevolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+
+bindsym xf86audioraisevolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym $mod2+xf86audiolowervolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-
+bindsym xf86audiolowervolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym $mod+m exec $togglemic
+bindsym $mod2+m exec $togglemic
+bindsym $mod +b exec $btmenu
+bindsym $mod2 +b exec $btmenu
+
+#keybindings
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+bindsym $mod+plus move position current
+bindsym $mod+Return exec $term #terminal
+bindsym $mod+Shift+Return exec kitty #terminal
+bindsym $mod+q kill #killfocused
+bindsym $mod+d exec $menu #rofi
+bindsym $mod+v exec $cliphistory
+bindsym $mod+e exec $emoji
+floating_modifier $mod normal #modkey to reside and move floating windows
+bindsym $mod+Shift+c reload
+bindsym $mod2+c reload
+bindsym $mod+W exec "/home/nullproj/.config/sway/wallpaper_switcher" #wallpaper switch menu
+bindsym $mod+shift+W exec "/home/nullproj/.config/rofi/rofi-wifi-menu.sh" #wallpaper switch menu
+bindsym $mod+ctrl+w exec "/home/nullproj/.config/sway/waybar_style_switcher" #waybar style switch menu
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+# Workspaces:
+#
+    # Switch to workspace
+    bindsym $mod+grave workspace number 0
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
+
+    # Move focused container to workspace
+    bindsym $mod+CTRL+grave move container to workspace number 0
+    bindsym $mod+CTRL+1 move container to workspace number 1
+    bindsym $mod+CTRL+2 move container to workspace number 2
+    bindsym $mod+CTRL+3 move container to workspace number 3
+    bindsym $mod+CTRL+4 move container to workspace number 4
+    bindsym $mod+CTRL+5 move container to workspace number 5
+    bindsym $mod+CTRL+6 move container to workspace number 6
+    bindsym $mod+CTRL+7 move container to workspace number 7
+    bindsym $mod+CTRL+8 move container to workspace number 8
+    bindsym $mod+CTRL+9 move container to workspace number 9
+    bindsym $mod+CTRL+0 move container to workspace number 10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default
+
+    bindsym $mod+period workspace next
+    bindsym $mod+comma workspace prev
+
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output * bg /home/nullproj/Pictures/wallpapers/wallpaper.jpg fill
+
+#set the monitor to run at 60 hz to save battery.
+output eDP-1 mode 1920x1080@60.002Hz
+#idle and lock
+exec swayidle -w \
+         timeout 1234600 'swaylock -f -c 000000' \
+         timeout 12000000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         timeout 18000000 'systemctl suspend' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000'
+
+#
+# Layout stuff:
+#
+
+    # Switch the current container between different layout styles
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+#
+    xwayland enable
+# Resizing containers:
+#touchpad settings
+input "ELAN1203:00 04F3:307A" {
+    natural_scroll enabled
+    scroll_method two_finger
+    tap enabled
+}
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $right resize shrink width 10px
+    bindsym $up resize grow height 10px
+    bindsym $down resize shrink height 10px
+    bindsym $left resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+# Gruvbox color palette
+set $gruvbox-dark-red     "#CC241D"
+set $gruvbox-red          "#FB4934"
+set $gruvbox-dark-yellow  "#D79921"
+set $gruvbox-yellow       "#C28907"
+set $gruvbox-dark-blue    "#458588"
+set $gruvbox-blue         "#83A598"
+set $gruvbox-dark-purple  "#B16286"
+set $gruvbox-purple       "#D3869B"
+set $gruvbox-dark-aqua    "#689D6A"
+set $gruvbox-aqua         "#8EC07C"
+set $gruvbox-dark-orange  "#D65D0E"
+set $gruvbox-orange       "#FE8019"
+set $gruvbox-dark-gray    "#A89984"
+set $gruvbox-gray         "#BDAE93"
+set $gruvbox-dark-green   "#32361A"
+set $gruvbox-green        "#49483E"
+set $gruvbox-dark-bg      "#282828"
+set $gruvbox-bg           "#32302F"
+
+# Window border colors
+client.focused            $gruvbox-yellow $gruvbox-yellow $gruvbox-dark-gray $gruvbox-yellow $gruvbox-yellow
+client.focused_inactive   $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray
+client.unfocused          $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray
+
+# Border size
+default_border pixel 1
+default_floating_border pixel 1
+
+#gaps and borders
+gaps inner 5
+gaps outer 2
+#corner_radius 15
+
+#font
+font pango:monospace 14 
+
+#disable title bar
+titlebar_padding 20
+titlebar_border_thickness 0
+# Status Bar:
+bar {
+	swaybar_command waybar
+}
+include /etc/sway/config.d/*
