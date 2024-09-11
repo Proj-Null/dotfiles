@@ -31,7 +31,7 @@ function yy() {
 	rm -f -- "$tmp"
 }
 
-fortune | chara say -r
+chara print -c ferris
 
 eval "$(starship init zsh)"
 
@@ -67,3 +67,4 @@ eval $(thefuck --alias)
 #syntax-highlighting
 source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 export PATH=$HOME/.local/bin:$PATH
+eval "$(_AUTO_CPUFREQ_COMPLETE=zsh_source auto-cpufreq)"
