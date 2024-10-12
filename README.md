@@ -1,10 +1,7 @@
 # Dotfiles
 My dotfiles for swaywm
 
-
-![Home Screenshot](Pictures/Screenshots/home.png)
-
+![Home](Pictures/Screenshots/home.png)
 ## Rofi view
+![Home with rofi](Pictures/Screenshots/home_w_rofi.png)
 
-
-![Home Screenshot](Pictures/Screenshots/home_w_rofi.png)
