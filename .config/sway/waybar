@@ -1,7 +1,0 @@
-#!/bin/bash
-if pidof waybar >/dev/null; then
-    killall rofi
-    exit 0
-else
-	waybar	
-fi

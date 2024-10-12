@@ -1,0 +1,40 @@
+# Gruvbox color palette
+set $gruvbox-dark-red     "#CC241D"
+set $gruvbox-red          "#FB4934"
+set $gruvbox-dark-yellow  "#D79921"
+set $gruvbox-yellow       "#C28907"
+set $gruvbox-dark-blue    "#458588"
+set $gruvbox-blue         "#83A598"
+set $gruvbox-dark-purple  "#B16286"
+set $gruvbox-purple       "#D3869B"
+set $gruvbox-dark-aqua    "#689D6A"
+set $gruvbox-aqua         "#8EC07C"
+set $gruvbox-dark-orange  "#D65D0E"
+set $gruvbox-orange       "#FE8019"
+set $gruvbox-dark-gray    "#A89984"
+set $gruvbox-gray         "#BDAE93"
+set $gruvbox-dark-green   "#32361A"
+set $gruvbox-green        "#49483E"
+set $gruvbox-dark-bg      "#282828"
+set $gruvbox-bg           "#32302F"
+
+# Window border colors
+client.focused            $gruvbox-yellow $gruvbox-yellow $gruvbox-dark-gray $gruvbox-yellow $gruvbox-yellow
+client.focused_inactive   $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray
+client.unfocused          $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray
+
+# Border size
+default_border pixel 1
+default_floating_border pixel 1
+
+#gaps and borders
+gaps inner 5
+gaps outer 2
+#corner_radius 15
+
+#font
+font pango:monospace 14 
+
+#disable title bar
+titlebar_padding 20
+titlebar_border_thickness 0

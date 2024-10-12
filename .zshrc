@@ -1,4 +1,8 @@
 alias dotgit='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME' 
+alias please=sudo
+alias npc=mpc load good-songs && mpc random on && mpc play && ncmpcpp
+alias simonsays=sudo
+alias download="pacman -S" 
 alias repven='sudo vencord -repair -location "/opt/discord"'
 alias ls='ls --color=auto'
 alias fetch='fastfetch'
@@ -16,6 +20,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 export PATH="$PATH:/sbin"
+export TERMINAL='/usr/bin/footclient'
 # Basic auto/tab complete:
 autoload -U compinit 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' menu select
@@ -31,40 +36,12 @@ function yy() {
 	rm -f -- "$tmp"
 }
 
-chara print -c ferris
-
+colorscript random
 eval "$(starship init zsh)"
 
 # To add support for TTYs this line can be optionally added.
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
-
-
-export PATH=$PATH:~/.venvs/venv1/bin
-
+export PATH=$HOME/.local/bin:$PATH
 eval "$(atuin init zsh)"
-
-eval 
-            fuck () {
-                TF_PYTHONIOENCODING=$PYTHONIOENCODING;
-                export TF_SHELL=zsh;
-                export TF_ALIAS=fuck;
-                TF_SHELL_ALIASES=$(alias);
-                export TF_SHELL_ALIASES;
-                TF_HISTORY="$(fc -ln -10)";
-                export TF_HISTORY;
-                export PYTHONIOENCODING=utf-8;
-                TF_CMD=$(
-                    thefuck THEFUCK_ARGUMENT_PLACEHOLDER $@
-                ) && eval $TF_CMD;
-                unset TF_HISTORY;
-                export PYTHONIOENCODING=$TF_PYTHONIOENCODING;
-                test -n "$TF_CMD" && print -s $TF_CMD
-            }
-        
-
-eval $(thefuck --alias)
-
 #syntax-highlighting
 source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-export PATH=$HOME/.local/bin:$PATH
-eval "$(_AUTO_CPUFREQ_COMPLETE=zsh_source auto-cpufreq)"

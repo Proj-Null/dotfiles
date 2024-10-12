@@ -1,0 +1,119 @@
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing":5, // Gaps between modules (4px)
+    // Choose the order of the modules
+
+
+    "modules-left": ["custom/appmenu","hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock",],
+    "modules-right": ["tray","network", "pulseaudio", "temperature", "backlight", "battery","custom/changewall","custom/powermenu"],
+
+
+
+
+    "hyprland/workspaces" : {
+        "on-click": "activate",
+        "active-only": false,
+        "all-outputs": true,
+        "format": "{}",
+        "format-icons": {
+			"urgent": "",
+			"active": "",
+			"default": ""
+        },
+        "persistent_workspaces": {
+             "*": 5
+        }       
+    },  
+    "custom/changewall":{
+        "format":" ",
+        "on-click": "wpaperd",
+        "on-click-right": "/home/nullproj/.config/hypr/Scripts/waybar_style_switcher",
+        "tooltip": false
+      },
+    
+    
+    
+    
+    
+    "custom/powermenu": {
+        "format": "",
+        "on-click": "wlogout",
+        "tooltip": false
+    },
+    "custom/appmenu": {
+        "format": "",
+        "on-click": "wofi --show drun prompt 'search' --width=10% --location top_left --style /home/nullproj/.config/wofi/styles/stylecompact.css",
+        "tooltip": false
+        },
+
+
+
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["󰛩", "󱩎", "󱩏", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󰛨"]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "nm-connection-editor"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}

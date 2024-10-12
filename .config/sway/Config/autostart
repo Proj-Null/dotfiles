@@ -1,0 +1,10 @@
+#autostart packages
+exec atuin daemon
+exec /usr/lib/polkit-kde-authentication-agent-1
+exec rog-control-center
+exec autotiling
+exec foot --server
+exec swaync
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
+
