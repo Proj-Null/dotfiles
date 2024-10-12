@@ -142,6 +142,7 @@
 
 #battery {
     background: @nothing; /* Gruvbox orange dark */
+    margin-right:15px;
     color: #ebdbb2; /* Gruvbox foreground secondary */
 }
 
