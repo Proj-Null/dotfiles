@@ -13,12 +13,14 @@ set $emoji "$scriptdir/rofi-emoji.sh"
 set $snap "$scriptdir/screenshot.sh -f"
 set $snaparea "$scriptdir/screenshot.sh -a"
 set $togglemic "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-set $cliphistory "rofi -modi clipboard:$HOME/.local/bin/cliphist -show clipboard"
+set $cliphistory "cliphist list | rofi -dmenu -p select item | cliphist decode | wl-copy"
 set $wifimenu "$scriptdir/rofi-wifi-menu.sh"
 set $btmenu "$scriptdir/bt.sh"
 set $wpmenu "$scriptdir/wallpaper_switcher" 
+set $stop "/home/nullproj/.local/share/scripts/stopinputs.sh"
 #keybinds
-
+#some other things 
+bindsym $mod+u exec $stop
 #Screenshots
 bindsym $mod+r mode "resize"
 bindsym Print exec $snap
@@ -41,6 +43,7 @@ bindsym $mod+m exec $togglemic
 bindsym $mod2+m exec $togglemic
 bindsym $mod +b exec $btmenu
 bindsym $mod2 +b exec $btmenu
+bindsym Mod2+Escape exec 'rm /tmp/sway_input_escape_flag'
 
 #keybindings
 bindsym $mod+Shift+minus move scratchpad

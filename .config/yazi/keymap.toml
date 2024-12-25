@@ -23,7 +23,10 @@ keymap = [
 	{ on = "<C-d>", run = "arrow 50%",   desc = "Move cursor down half page" },
 	{ on = "<C-b>", run = "arrow -100%", desc = "Move cursor up one page" },
 	{ on = "<C-f>", run = "arrow 100%",  desc = "Move cursor down one page" },
-	{on  = ["c","a"],run = '''shell 'dragon-drop -x -i -T "$1"' --confirm''',desc="drag and drop with dragon"},
+  { on = ["c","r"],run = '''shell 'mv "$@" "$(dirname "$1")/watched_$(basename "$1")"' --confirm''', desc = "Rename file by adding watched_ in front"},
+  { on = ["c", "u"],run = '''shell 'mv "$@" "$(dirname "$1")/$(basename "$1" | sed 's/^watched_//')"' --confirm''',desc = "Undo renaming by removing 'watched_' from the filename"},
+  { on = ["c", "p"], run = '''shell 'libreoffice --headless --convert-to pdf "$@"' --confirm''', desc = "Convert files to PDF using LibreOffice" },
+	{ on  = ["c","a"],run = '''shell 'dragon-drop -x -i -T "$@"' --confirm''',desc="drag and drop with dragon"},
 	{ on = "<S-PageUp>",   run = "arrow -50%",  desc = "Move cursor up half page" },
 	{ on = "<S-PageDown>", run = "arrow 50%",   desc = "Move cursor down half page" },
 	{ on = "<PageUp>",     run = "arrow -100%", desc = "Move cursor up one page" },
@@ -47,17 +50,18 @@ keymap = [
 	{ on = "J", run = "seek 5",  desc = "Seek down 5 units in the preview" },
 
 	# Selection
-	{ on = "<Space>", run = [ "select --state=none", "arrow 1" ], desc = "Toggle the current selection state" },
+	{ on = "<Space>", run = [ "toggle --state=none", "arrow 1" ], desc = "Toggle the current selection state" },
 	{ on = "v",       run = "visual_mode",                        desc = "Enter visual mode (selection mode)" },
 	{ on = "V",       run = "visual_mode --unset",                desc = "Enter visual mode (unset mode)" },
-	{ on = "<C-a>",   run = "select_all --state=true",            desc = "Select all files" },
-	{ on = "<C-r>",   run = "select_all --state=none",            desc = "Inverse selection of all files" },
+	{ on = "<C-a>",   run = "toggle_all --state=true",            desc = "Select all files" },
+	{ on = "<C-r>",   run = "toggle_all --state=none",            desc = "Inverse selection of all files" },
 
 	# Operation
 	{ on = "o",         run = "open",                        desc = "Open selected files" },
 	{ on = "O",         run = "open --interactive",          desc = "Open selected files interactively" },
 	{ on = "<Enter>",   run = "open",                        desc = "Open selected files" },
 	{ on = "<S-Enter>", run = "open --interactive",          desc = "Open selected files interactively" },
+  { on  = "y",run = [ '''shell 'for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list' --confirm''', "yank" ]},
 	{ on = "y",         run = "yank",                        desc = "Yank selected files (copy)" },
 	{ on = "x",         run = "yank --cut",                  desc = "Yank selected files (cut)" },
 	{ on = "p",         run = "paste",                       desc = "Paste yanked files" },
@@ -121,10 +125,14 @@ keymap = [
 	# Goto
 	{ on = [ "g", "h" ],       run = "cd ~",                     desc = "Go to the home directory" },
     	{ on = [ "g", "c" ],       run = "cd ~/.config",             desc = "Go to the config directory" },
+    	{ on = [ "g", "l" ],       run = "cd ~/.local",             desc = "Go to the config directory" },
+    	{ on = [ "g", "C" ],       run = "cd ~/.cache",             desc = "Go to the config directory" },
+    	{ on = [ "g", "s" ],       run = "cd ~/1Study",             desc = "Go to the config directory" },
    	{ on = [ "g", "d" ],       run = "cd ~/Downloads",           desc = "Go to the downloads directory" },
  	{ on = [ "g", "D" ],       run = "cd ~/Documents",           desc = "Go to the Documents directory" },
 	{ on = [ "g", "m" ],       run = "cd ~/Music",               desc = "Go to the Music directory" },
     	{ on = [ "g", "p" ],       run = "cd ~/Pictures",            desc = "Go to the Pictures directory" },
+    	{ on = [ "g", "P" ],       run = "cd /run/media/nullproj/6ACF-39C9/",desc = "Go to the Pendrive" },
   	{ on = [ "g", "v" ],       run = "cd ~/Videos",              desc = "Go to the Videos directory" },
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },

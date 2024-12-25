@@ -1,0 +1,85 @@
+* {
+    background:     #282828;
+    background2:    #1d2021;
+    foreground:     #d5c4a1;
+    selected:       #928374;
+    text:           #fbf1c7;
+    selectedtext:   #ebdbb2;
+}
+
+configuration {
+    font: "Sans 12";
+    line-margin: 10;
+    display-drun: "";
+}
+
+window {
+    border-radius: 12px;
+    fullscreen: false;
+    background-color:@background2;
+}
+
+mainbox {
+    border-radius: 2px;
+    padding: 10px 10px;
+    children: [inputbar, listview];
+    spacing: 15px;
+    background-color: @background2;
+}
+
+inputbar {
+    padding: 8px;
+    border-radius: 8px;
+    children: [prompt, entry];
+    background-color: @background;
+}
+
+prompt {
+    enabled: true;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: @selected;
+    text-color: @text;
+}
+
+entry {
+    padding: 8px;
+    placeholder: "Search...";
+    border-radius: 6px;
+    background-color: @background;
+    text-color: @text;
+    placeholder-color: rgba(255, 255, 255, 0.5);
+}
+
+listview {
+    layout: vertical;
+    spacing: 8px;
+    lines: 10;
+    background-color: @background;
+}
+
+element {
+    padding: 12px;
+    border-radius: 4px;
+    background-color: @background;
+    text-color: @foreground;
+}
+
+element.alternate.normal {
+    background-color: @transparent;
+}
+
+element normal.normal {
+    background-color: @background;
+}
+
+element selected.normal {
+    background-color: @selected;
+    text-color: @selectedtext;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
