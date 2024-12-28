@@ -13,7 +13,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 export PATH="$PATH:/sbin"
-
+export PATH="$PATH:/home/nullproj/.config/composer/vendor/bin"
 # Basic auto/tab complete:
 autoload -U compinit 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' menu select
