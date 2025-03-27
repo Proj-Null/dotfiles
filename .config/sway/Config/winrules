@@ -21,7 +21,7 @@ for_window [title=".*Bitwarden.*"] floating enable
 for_window [app_id="pomo"] move position 1670 0
 
 #assigning apps to workspaces
-assign [app_id="zen-beta"] workspace number 2
+assign [app_id="zen"] workspace number 2
 assign [class="Caprine"] workspace number 5
 assign [class="discord"] workspace number 7
 assign [class="Minecraft*"] workspace number 9

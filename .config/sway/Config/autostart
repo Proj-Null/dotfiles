@@ -8,4 +8,3 @@ exec swaync
 exec bluetooth 
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
-

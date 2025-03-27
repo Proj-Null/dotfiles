@@ -8,12 +8,15 @@ alias ..="cd .."
 alias ping="ping -c 5"
 alias :wq=exit
 alias test='echo works'
+alias hey='php artisan'
+alias yeet='git push '
 #history and stuff
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 export PATH="$PATH:/sbin"
 export PATH="$PATH:/home/nullproj/.config/composer/vendor/bin"
+export PATH="$PATH:/home/nullproj/go/bin"
 # Basic auto/tab complete:
 autoload -U compinit 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' menu select
@@ -38,3 +41,5 @@ export PATH=$HOME/.local/bin:$PATH
 eval "$(atuin init zsh)"
 #syntax-highlighting
 source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+export PATH=$PATH:/home/nullproj/.spicetify
