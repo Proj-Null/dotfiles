@@ -5,10 +5,10 @@ output * bg /home/nullproj/Pictures/wallpapers/wallpaper.jpg fill
 output eDP-1 mode 1920x1080@60.002Hz
 #idle and lock
 exec swayidle -w \
-         timeout 1234600 'hyprlock' \
+         timeout 1234600 'swaylock' \
          timeout 12000000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          timeout 18000000 'systemctl suspend' resume 'swaymsg "output * power on"' \
-         before-sleep 'hyprlock'
+         before-sleep 'swaylock'
 
 #
 # Layout stuff:
@@ -27,11 +27,7 @@ exec swayidle -w \
     xwayland enable
 # Resizing containers:
 #touchpad settings
-input "ELAN1203:00 04F3:307A" {
-    natural_scroll enabled
-    scroll_method two_finger
-    tap enabled
-}
+
 # Status Bar:
 bar {
 	swaybar_command waybar

@@ -2,14 +2,16 @@
   "IS_MAXIMIZED": true,
   "IS_MINIMIZED": false,
   "WINDOW_BOUNDS": {
-    "x": 6,
-    "y": 36,
-    "width": 1908,
-    "height": 1038
+    "x": 0,
+    "y": 0,
+    "width": 1904,
+    "height": 1034
   },
   "chromiumSwitches": {},
   "DANGEROUS_ENABLE_DEVTOOLS_ONLY_ENABLE_IF_YOU_KNOW_WHAT_YOURE_DOING": true,
   "MIN_WIDTH": 940,
   "MIN_HEIGHT": 500,
-  "SKIP_HOST_UPDATE": true
+  "SKIP_HOST_UPDATE": true,
+  "BACKGROUND_COLOR": "#121214",
+  "offloadAdmControls": false
 }

@@ -19,22 +19,22 @@ set $gruvbox-dark-bg      "#282828"
 set $gruvbox-bg           "#32302F"
 
 # Window border colors
-client.focused            $gruvbox-yellow $gruvbox-yellow $gruvbox-dark-gray $gruvbox-yellow $gruvbox-yellow
-client.focused_inactive   $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray
-client.unfocused          $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray $gruvbox-dark-gray
+client.focused            $gruvbox-yellow $gruvbox-yellow $gruvbox-dark-bg $gruvbox-yellow $gruvbox-yellow
+client.focused_inactive   $gruvbox-gray $gruvbox-gray $gruvbox-dark-bg $gruvbox-gray $gruvbox-gray
+client.unfocused          $gruvbox-dark-bg $gruvbox-dark-bg $gruvbox-dark-bg $gruvbox-dark-bg $gruvbox-dark-bg
 
 # Border size
 default_border pixel 1
 default_floating_border pixel 1
 
-#gaps and borders
+# Gaps and borders
 gaps inner 5
 gaps outer 2
 #corner_radius 15
 
-#font
+# Font
 font pango:monospace 14 
 
-#disable title bar
+# Disable title bar
 titlebar_padding 20
 titlebar_border_thickness 0

@@ -1,0 +1,7 @@
+input "1267:12410:ELAN1203:00_04F3:307A_Mouse" {
+    accel_profile "adaptive"         # or "flat"
+    pointer_accel 0.5                # adjust sensitivity (0 = no accel, >0 = faster)
+    natural_scroll enabled# reverse scroll direction
+    middle_emulation enabled         # optional: enable middle-click emulation
+    scroll_button 274                # optional: assign scroll button (e.g., 274 for middle-click)
+}

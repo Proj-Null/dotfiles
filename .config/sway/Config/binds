@@ -6,28 +6,26 @@ set $down j
 set $up k
 set $right l
 
-set $scriptdir $HOME/.config/sway/scripts
 set $term footclient
-set $menu "$scriptdir/rofi"
-set $emoji "$scriptdir/rofi-emoji.sh"
+set $altterm kitty
+set $scriptdir $HOME/.config/sway/scripts
 set $snap "$scriptdir/screenshot.sh -f"
 set $snaparea "$scriptdir/screenshot.sh -a"
 set $togglemic "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-set $cliphistory "cliphist list | rofi -dmenu -p select item | cliphist decode | wl-copy"
-set $wifimenu "$scriptdir/rofi-wifi-menu.sh"
-set $btmenu "$scriptdir/bt.sh"
 set $wpmenu "$scriptdir/wallpaper_switcher" 
-set $stop "/home/nullproj/.local/share/scripts/stopinputs.sh"
-set $herpics "feh /home/nullproj/Documents/important/.herpictures"
+set $swappy "$scriptdir/open_latest.sh"
+set $launcher 'pkill rofi || rofi -show drun'
+set $command 'pkill rofi || rofi -show run -config /home/nullproj/.config/rofi/alt.rasi'
+set $cliphistory "pkill rofi ||cliphist list | rofi -dmenu -p select item | cliphist decode | wl-copy"
+set $clipdel "pkill rofi ||cliphist list | rofi -dmenu -p select item | cliphist delete"
+set $emoji 'pkill rofi ||rofi -modi emoji -show emoji'
 #keybinds
-#some other things 
-bindsym $mod+u exec $stop
 #Screenshots
 bindsym $mod+r mode "resize"
-bindsym $mod+shift+h mode exec $herpics
 bindsym Print exec $snap
 bindsym $mod+p exec $snaparea
 bindsym shift+Print exec $snaparea
+bindsym $mod+shift+s exec $swappy
 bindsym $mod2+x exec swaync-client -t -sw
 
 #controlling the brightness.
@@ -45,16 +43,16 @@ bindsym $mod+m exec $togglemic
 bindsym $mod2+m exec $togglemic
 bindsym $mod +b exec $btmenu
 bindsym $mod2 +b exec $btmenu
-bindsym Mod2+Escape exec 'rm /tmp/sway_input_escape_flag'
 
 #keybindings
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 bindsym $mod+plus move position current
 bindsym $mod+Return exec $term #terminal
-bindsym $mod+Shift+Return exec kitty #terminal
+
+bindsym $mod+shift+Return exec kitty -1
 bindsym $mod+q kill #killfocused
-bindsym $mod+d exec $menu #rofi
+bindsym $mod+d exec "pkill rofi || rofi -show drun"
 bindsym $mod+v exec $cliphistory
 bindsym $mod+e exec $emoji
 floating_modifier $mod normal #modkey to reside and move floating windows

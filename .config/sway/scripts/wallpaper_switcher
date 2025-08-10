@@ -1,7 +1,8 @@
 #!/bin/bash
-imagesdir=/home/nullproj/Pictures/wallpapers
-images=("${imagesdir}"/*.{jpg,png,jpeg})
+imagesdir="$HOME/Pictures/wallpapers"
+images=(${imagesdir}/*.{jpg,png,jpeg})
 rofi="rofi -dmenu -p Select Wallpaper"
+wp="$HOME/Pictures/wallpapers/wallpaper.jpg"
 
 menu() {
   for image in "${images[@]}"; do
@@ -13,9 +14,8 @@ main() {
   choice=$(menu | ${rofi})
   if [[ -z $choice ]]; then return; fi
   killall swaybg
-  ln -sf ${imagesdir}/${choice} ~/Pictures/wallpapers/wallpaper.jpg
-  swaymsg reload
-  #swaymsg "output * bg ${imagesdir}/${choice} fill"
+  ln -sf "${imagesdir}/${choice}" "$wp"
+  swaymsg "output * bg $wp fill"
 }
 
 # Check if the directory exists
